@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.YipYip;
-import com.kiragames.service.YipYipService;
+import com.kiragames.model.IPSource;
+import com.kiragames.service.IPSourceService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/yipyip")
+@RequestMapping("/ipsource")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class YipYipController {
+public class IPSourceController {
 	
 	@Autowired
-	private YipYipService yys;
+	private IPSourceService ipss;
 	
 	@PostMapping
-	public ResponseEntity<YipYip> save(@RequestBody YipYip yy) {
-		yys.save(yy);
-		return ResponseEntity.ok(yy);
+	public ResponseEntity<IPSource> save(@RequestBody IPSource ips) {
+		ipss.save(ips);
+		return ResponseEntity.ok(ips);
 	}
 
 	@GetMapping
-	public List<YipYip> findAll() {
-		return yys.findAll();
+	public List<IPSource> findAll() {
+		return ipss.findAll();
 	}
 
 }

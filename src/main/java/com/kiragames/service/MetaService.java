@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kiragames.dao.interfaces.IYipYipDAO;
-import com.kiragames.model.YipYip;
+import com.kiragames.dao.interfaces.IMetaDAO;
+import com.kiragames.model.Meta;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,16 +16,16 @@ import lombok.ToString;
 
 @Service
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class YipYipService {
+public class MetaService {
 	
 	@Autowired
-	private IYipYipDAO dao;
+	private IMetaDAO dao;
 	
-	public void save(YipYip yy) {
-		dao.save(yy);
+	public void save(Meta meta) {
+		dao.save(meta);
 	}
 
-	public List<YipYip> findAll() {
+	public List<Meta> findAll() {
 		return dao.findAll();
 	}
 

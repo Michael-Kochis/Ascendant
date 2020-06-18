@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.YipYip;
-import com.kiragames.service.YipYipService;
+import com.kiragames.model.Meta;
+import com.kiragames.service.MetaService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/yipyip")
+@RequestMapping("/meta")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class YipYipController {
+public class MetaController {
 	
 	@Autowired
-	private YipYipService yys;
+	private MetaService ms;
 	
 	@PostMapping
-	public ResponseEntity<YipYip> save(@RequestBody YipYip yy) {
-		yys.save(yy);
-		return ResponseEntity.ok(yy);
+	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
+		ms.save(meta);
+		return ResponseEntity.ok(meta);
 	}
 
 	@GetMapping
-	public List<YipYip> findAll() {
-		return yys.findAll();
+	public List<Meta> findAll() {
+		return ms.findAll();
 	}
 
 }

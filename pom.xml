@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kiragames</groupId>
-	<artifactId>diaspora</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>diaspora</name>
-	<description>Homage to Star Trader in a dynamic 3D universe.</description>
+	<artifactId>Ascendant</artifactId>
+	<version>0.0.1</version>
+	<name>Ascendant</name>
+	<description>Create and store Ascendant Heroes.</description>
 
 	<properties>
 		<java.version>1.8</java.version>
