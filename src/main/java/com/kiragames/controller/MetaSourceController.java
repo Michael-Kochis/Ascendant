@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.MetaSource;
-import com.kiragames.service.MetaSourceService;
+import com.kiragames.model.Meta;
+import com.kiragames.service.MetaService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/metasource")
+@RequestMapping("/meta")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaController {
+public class MetaSourceController {
 	
 	@Autowired
-	private MetaSourceService mss;
+	private MetaService ms;
 	
 	@PostMapping
-	public ResponseEntity<MetaSource> save(@RequestBody MetaSource ms) {
-		mss.save(ms);
-		return ResponseEntity.ok(ms);
+	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
+		ms.save(meta);
+		return ResponseEntity.ok(meta);
 	}
 
 	@GetMapping
-	public List<MetaSource> findAll() {
-		return mss.findAll();
+	public List<Meta> findAll() {
+		return ms.findAll();
 	}
 
 }
