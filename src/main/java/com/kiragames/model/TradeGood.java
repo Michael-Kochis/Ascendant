@@ -2,8 +2,11 @@ package com.kiragames.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.PositiveOrZero;
+import javax.persistence.IdClass;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.springframework.stereotype.Component;
 
@@ -16,19 +19,22 @@ import lombok.ToString;
 @Component
 @Entity
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class Meta {
-
+public class TradeGood  {
+	@Column
+	@Positive
 	@Id
-	@PositiveOrZero
-	private long MetaID;
+	@GeneratedValue
+	private long goodID;
 	
 	@Column
-	private String nomen;
+	private String goodName;
 	
 	@Column
-	private String namae;
+	@Positive
+	private long goodClassID;
 	
 	@Column
-	@PositiveOrZero
+	@Positive
 	private long sourceID;
+	
 }

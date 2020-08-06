@@ -16,19 +16,28 @@ import lombok.ToString;
 @Component
 @Entity
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class Meta {
+public class AscendantStatBlock {
 
 	@Id
 	@PositiveOrZero
 	private long MetaID;
 	
-	@Column
-	private String nomen;
-	
-	@Column
-	private String namae;
-	
-	@Column
-	@PositiveOrZero
-	private long sourceID;
+	@Column(name="MIG")
+	private int might;
+
+	@Column(name="AGL")
+	private int agility;
+
+	@Column(name="VAL")
+	private int valor;
+
+	@Column(name="RES")
+	private int resolve;
+
+	@Column(name="INS")
+	private int insight;
+
+	@Column(name="CHA")
+	private int charisma;
+
 }

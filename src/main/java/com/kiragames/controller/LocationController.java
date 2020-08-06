@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.Meta;
-import com.kiragames.service.MetaService;
+import com.kiragames.model.Location;
+import com.kiragames.service.LocationService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/meta")
+@RequestMapping("/location")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaController {
+public class LocationController {
 	
 	@Autowired
-	private MetaService ms;
+	private LocationService ls;
 	
 	@PostMapping
-	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
-		ms.save(meta);
-		return ResponseEntity.ok(meta);
+	public ResponseEntity<Location> save(@RequestBody Location loc) {
+		ls.save(loc);
+		return ResponseEntity.ok(loc);
 	}
 
 	@GetMapping
-	public List<Meta> findAll() {
-		return ms.findAll();
+	public List<Location> findAll() {
+		return ls.findAll();
 	}
 
 }

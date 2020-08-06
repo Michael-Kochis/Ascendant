@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.Meta;
-import com.kiragames.service.MetaService;
+import com.kiragames.model.Faction;
+import com.kiragames.service.FactionService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/meta")
+@RequestMapping("/faction")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaController {
+public class FactionController {
 	
 	@Autowired
-	private MetaService ms;
+	private FactionService rs;
 	
 	@PostMapping
-	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
-		ms.save(meta);
-		return ResponseEntity.ok(meta);
+	public ResponseEntity<Faction> save(@RequestBody Faction rel) {
+		rs.save(rel);
+		return ResponseEntity.ok(rel);
 	}
 
 	@GetMapping
-	public List<Meta> findAll() {
-		return ms.findAll();
+	public List<Faction> findAll() {
+		return rs.findAll();
 	}
 
 }

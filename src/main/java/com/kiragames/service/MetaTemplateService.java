@@ -1,13 +1,12 @@
 package com.kiragames.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kiragames.dao.interfaces.IMetaSourceDAO;
-import com.kiragames.model.MetaSource;
+import com.kiragames.dao.interfaces.IMetaTemplateDAO;
+import com.kiragames.model.MetaTemplate;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,25 +16,25 @@ import lombok.ToString;
 
 @Service
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaSourceService {
+public class MetaTemplateService {
 	
 	@Autowired
-	private IMetaSourceDAO dao;
+	private IMetaTemplateDAO dao;
 	
-	public void save(MetaSource ms) {
-		dao.save(ms);
+	public void save(MetaTemplate mt) {
+		dao.save(mt);
 	}
 
-	public List<MetaSource> findAll() {
+	public List<MetaTemplate> findAll() {
 		return dao.findAll();
 	}
 	
-	public List<MetaSource> findByMetaID(long id) {
+	public List<MetaTemplate> findByMetaID(long id) {
 		return dao.findByMetaID(id);
 	}
 	
-	public List<MetaSource> findBySourceID(long id) {
-		return dao.findBySourceID(id);
+	public List<MetaTemplate> findByTemplateID(long id) {
+		return dao.findByTemplateID(id);
 	}
 	
 

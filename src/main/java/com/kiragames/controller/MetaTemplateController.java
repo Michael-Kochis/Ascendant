@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.Meta;
-import com.kiragames.service.MetaService;
+import com.kiragames.model.MetaTemplate;
+import com.kiragames.service.MetaTemplateService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/meta")
+@RequestMapping({"/meta/template","/template/meta"})
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaController {
+public class MetaTemplateController {
 	
 	@Autowired
-	private MetaService ms;
+	private MetaTemplateService mts;
 	
 	@PostMapping
-	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
-		ms.save(meta);
+	public ResponseEntity<MetaTemplate> save(@RequestBody MetaTemplate meta) {
+		mts.save(meta);
 		return ResponseEntity.ok(meta);
 	}
 
 	@GetMapping
-	public List<Meta> findAll() {
-		return ms.findAll();
+	public List<MetaTemplate> findAll() {
+		return mts.findAll();
 	}
 
 }

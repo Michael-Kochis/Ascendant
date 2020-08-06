@@ -2,8 +2,8 @@ package com.kiragames.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.validation.constraints.Positive;
 
 import org.springframework.stereotype.Component;
@@ -16,20 +16,17 @@ import lombok.ToString;
 
 @Component
 @Entity
+@IdClass(TemplateContainsID.class)
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaSource  {
-
+public class TemplateContains  {
+	@Column
+	@Positive
 	@Id
-	@Positive
-	@GeneratedValue
-	private long key;
+	private long templateID;
 	
 	@Column
 	@Positive
-	private long metaID;
-	
-	@Column
-	@Positive
-	private long sourceID;
+	@Id
+	private long containsID;
 	
 }

@@ -2,6 +2,7 @@ package com.kiragames.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -16,19 +17,20 @@ import lombok.ToString;
 @Component
 @Entity
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class Meta {
-
+public class Facility {
 	@Id
 	@PositiveOrZero
-	private long MetaID;
+	@GeneratedValue
+	private long facilityID;
 	
 	@Column
-	private String nomen;
-	
-	@Column
-	private String namae;
+	@PositiveOrZero
+	private long locationID;
 	
 	@Column
 	@PositiveOrZero
 	private long sourceID;
+
+	@Column
+	private String facilityName;
 }

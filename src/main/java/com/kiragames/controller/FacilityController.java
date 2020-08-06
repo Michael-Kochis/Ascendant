@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.Meta;
-import com.kiragames.service.MetaService;
+import com.kiragames.model.Facility;
+import com.kiragames.service.FacilityService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/meta")
+@RequestMapping({"/facility", "/location/facility"})
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaController {
+public class FacilityController {
 	
 	@Autowired
-	private MetaService ms;
+	private FacilityService fs;
 	
 	@PostMapping
-	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
-		ms.save(meta);
-		return ResponseEntity.ok(meta);
+	public ResponseEntity<Facility> save(@RequestBody Facility fac) {
+		fs.save(fac);
+		return ResponseEntity.ok(fac);
 	}
 
 	@GetMapping
-	public List<Meta> findAll() {
-		return ms.findAll();
+	public List<Facility> findAll() {
+		return fs.findAll();
 	}
 
 }

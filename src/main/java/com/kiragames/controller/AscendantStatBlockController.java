@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.Meta;
-import com.kiragames.service.MetaService;
+import com.kiragames.model.AscendantStatBlock;
+import com.kiragames.service.AscendantStatBlockService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,22 +22,22 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/meta")
+@RequestMapping("/ascendantstat")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class MetaController {
+public class AscendantStatBlockController {
 	
 	@Autowired
-	private MetaService ms;
+	private AscendantStatBlockService mss;
 	
 	@PostMapping
-	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
-		ms.save(meta);
-		return ResponseEntity.ok(meta);
+	public ResponseEntity<AscendantStatBlock> save(@RequestBody AscendantStatBlock asb) {
+		mss.save(asb);
+		return ResponseEntity.ok(asb);
 	}
 
 	@GetMapping
-	public List<Meta> findAll() {
-		return ms.findAll();
+	public List<AscendantStatBlock> findAll() {
+		return mss.findAll();
 	}
 
 }

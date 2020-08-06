@@ -2,6 +2,7 @@ package com.kiragames.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -16,19 +17,12 @@ import lombok.ToString;
 @Component
 @Entity
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class Meta {
-
+public class Template {
 	@Id
 	@PositiveOrZero
-	private long MetaID;
-	
+	@GeneratedValue
+	private long templateID;
+
 	@Column
-	private String nomen;
-	
-	@Column
-	private String namae;
-	
-	@Column
-	@PositiveOrZero
-	private long sourceID;
+	private String templateName;
 }

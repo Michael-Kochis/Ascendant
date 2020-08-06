@@ -3,7 +3,8 @@ package com.kiragames.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.PositiveOrZero;
+import javax.persistence.IdClass;
+import javax.validation.constraints.Positive;
 
 import org.springframework.stereotype.Component;
 
@@ -15,20 +16,17 @@ import lombok.ToString;
 
 @Component
 @Entity
+@IdClass(MetaTemplateID.class)
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class Meta {
-
+public class MetaTemplate  {
+	@Column
+	@Positive
 	@Id
-	@PositiveOrZero
-	private long MetaID;
+	private long metaID;
 	
 	@Column
-	private String nomen;
+	@Positive
+	@Id
+	private long templateID;
 	
-	@Column
-	private String namae;
-	
-	@Column
-	@PositiveOrZero
-	private long sourceID;
 }
