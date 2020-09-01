@@ -31,6 +31,9 @@ public class IPSourceController {
 	
 	@PostMapping
 	public ResponseEntity<IPSource> save(@RequestBody IPSource ips) {
+		if (ips.getSourceID() == 0) {
+			ips.setSourceID((long) ipss.findAll().size()+1);
+		}
 		ipss.save(ips);
 		return ResponseEntity.ok(ips);
 	}

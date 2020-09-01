@@ -20,7 +20,7 @@ public class AscendantStatBlock {
 
 	@Id
 	@PositiveOrZero
-	private long MetaID;
+	private long personaID;
 	
 	@Column(name="MIG")
 	private int might;

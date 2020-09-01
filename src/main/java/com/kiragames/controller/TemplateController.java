@@ -31,6 +31,9 @@ public class TemplateController {
 	
 	@PostMapping
 	public ResponseEntity<Template> save(@RequestBody Template tmp) {
+		if (tmp.getTemplateID() == 0) {
+			tmp.setTemplateID((long) ts.findAll().size()+1);
+		}
 		ts.save(tmp);
 		return ResponseEntity.ok(tmp);
 	}

@@ -2,10 +2,7 @@ package com.kiragames.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import org.springframework.stereotype.Component;
@@ -23,7 +20,6 @@ public class TradeGood  {
 	@Column
 	@Positive
 	@Id
-	@GeneratedValue
 	private long goodID;
 	
 	@Column

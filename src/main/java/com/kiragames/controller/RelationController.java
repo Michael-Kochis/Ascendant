@@ -31,6 +31,9 @@ public class RelationController {
 	
 	@PostMapping
 	public ResponseEntity<Relation> save(@RequestBody Relation rel) {
+		if (rel.getRelationID() == 0) {
+			rel.setRelationID((long) rs.findAll().size()+1);
+		}
 		rs.save(rel);
 		return ResponseEntity.ok(rel);
 	}

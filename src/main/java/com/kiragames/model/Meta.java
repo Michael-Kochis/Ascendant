@@ -15,12 +15,12 @@ import lombok.ToString;
 
 @Component
 @Entity
-@NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class Meta {
+@NoArgsConstructor @Getter @Setter @EqualsAndHashCode(callSuper=false) @ToString
+public class Meta extends Persona {
 
 	@Id
 	@PositiveOrZero
-	private long MetaID;
+	private long personaID;
 	
 	@Column
 	private String nomen;
@@ -31,4 +31,5 @@ public class Meta {
 	@Column
 	@PositiveOrZero
 	private long sourceID;
+	
 }

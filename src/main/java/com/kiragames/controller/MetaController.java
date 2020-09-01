@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kiragames.model.Meta;
 import com.kiragames.service.MetaService;
+import com.kiragames.service.PersonaService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -29,8 +30,14 @@ public class MetaController {
 	@Autowired
 	private MetaService ms;
 	
+	@Autowired
+	private PersonaService ps;
+	
 	@PostMapping
 	public ResponseEntity<Meta> save(@RequestBody Meta meta) {
+		if (meta.getPersonaID() == 0) {
+			meta.setPersonaID((long)ps.findAll().size()+1);
+		}
 		ms.save(meta);
 		return ResponseEntity.ok(meta);
 	}

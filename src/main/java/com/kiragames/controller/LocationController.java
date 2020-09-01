@@ -31,6 +31,9 @@ public class LocationController {
 	
 	@PostMapping
 	public ResponseEntity<Location> save(@RequestBody Location loc) {
+		if (loc.getLocationID() == 0) {
+			loc.setLocationID((long) ls.findAll().size()+1);
+		}
 		ls.save(loc);
 		return ResponseEntity.ok(loc);
 	}

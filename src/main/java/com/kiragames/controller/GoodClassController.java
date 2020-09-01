@@ -31,6 +31,9 @@ public class GoodClassController {
 	
 	@PostMapping
 	public ResponseEntity<GoodClass> save(@RequestBody GoodClass gc) {
+		if (gc.getGoodClassID() == 0) {
+			gc.setGoodClassID((long) gcs.findAll().size()+1);
+		}
 		gcs.save(gc);
 		return ResponseEntity.ok(gc);
 	}

@@ -31,6 +31,9 @@ public class FactionController {
 	
 	@PostMapping
 	public ResponseEntity<Faction> save(@RequestBody Faction rel) {
+		if (rel.getFactionID() == 0) {
+			rel.setFactionID((long) rs.findAll().size()+1);
+		}
 		rs.save(rel);
 		return ResponseEntity.ok(rel);
 	}

@@ -31,6 +31,9 @@ public class FacilityController {
 	
 	@PostMapping
 	public ResponseEntity<Facility> save(@RequestBody Facility fac) {
+		if (fac.getFacilityID() == 0) {
+			fac.setFacilityID((long) fs.findAll().size() + 1);
+		}
 		fs.save(fac);
 		return ResponseEntity.ok(fac);
 	}

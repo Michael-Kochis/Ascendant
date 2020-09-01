@@ -20,7 +20,6 @@ import lombok.ToString;
 public class Facility {
 	@Id
 	@PositiveOrZero
-	@GeneratedValue
 	private long facilityID;
 	
 	@Column

@@ -2,7 +2,6 @@ package com.kiragames.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -20,7 +19,6 @@ import lombok.ToString;
 public class Relation {
 	@Id
 	@PositiveOrZero
-	@GeneratedValue
 	private long relationID;
 
 	@Column

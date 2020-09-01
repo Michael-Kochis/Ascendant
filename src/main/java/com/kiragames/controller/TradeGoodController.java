@@ -31,6 +31,9 @@ public class TradeGoodController {
 	
 	@PostMapping
 	public ResponseEntity<TradeGood> save(@RequestBody TradeGood good) {
+		if (good.getGoodID() == 0) {
+			good.setGoodID((long) tgs.findAll().size()+1); 
+		}
 		tgs.save(good);
 		return ResponseEntity.ok(good);
 	}
