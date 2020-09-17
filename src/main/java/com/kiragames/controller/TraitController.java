@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kiragames.model.Persona;
-import com.kiragames.service.PersonaService;
+import com.kiragames.model.Trait;
+import com.kiragames.service.TraitService;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,25 +22,25 @@ import lombok.ToString;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/persona")
+@RequestMapping("/trait")
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class PersonaController {
+public class TraitController {
 	
 	@Autowired
-	private PersonaService ps;
+	private TraitService trs;
 	
 	@PostMapping
-	public ResponseEntity<Persona> save(@RequestBody Persona person) {
-		if (person.getPersonaID() == 0) {
-			person.setPersonaID(ps.getMax()+1);
+	public ResponseEntity<Trait> save(@RequestBody Trait trait) {
+		if (trait.getTraitID() == 0) {
+			trait.setTraitID(trs.getMax()+1);
 		}
-		ps.save(person);
-		return ResponseEntity.ok(person);
+		trs.save(trait);
+		return ResponseEntity.ok(trait);
 	}
-	
+
 	@GetMapping
-	public List<Persona> findAll() {
-		return ps.findAll();
+	public List<Trait> findAll() {
+		return trs.findAll();
 	}
 
 }
