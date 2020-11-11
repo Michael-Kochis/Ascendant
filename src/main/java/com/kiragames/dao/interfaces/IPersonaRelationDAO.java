@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.kiragames.model.PersonaRelation;
 
 @Repository
-public interface PersonaRelationDAO extends JpaRepository<PersonaRelation, PersonaRelation> {
+public interface IPersonaRelationDAO extends JpaRepository<PersonaRelation, PersonaRelation> {
 	public List<PersonaRelation> findByLeftID(long id);
 	public List<PersonaRelation> findByRightID(long id);
 	public List<PersonaRelation> findByRelationID(long id);

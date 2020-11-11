@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kiragames.dao.interfaces.IPersonaRelationDAO;
-import com.kiragames.model.PersonaRelation;
+import com.kiragames.dao.interfaces.IFactionStatusDAO;
+import com.kiragames.model.FactionStatus;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,28 +16,28 @@ import lombok.ToString;
 
 @Service
 @NoArgsConstructor @Getter @Setter @EqualsAndHashCode @ToString
-public class PersonaRelationService {
+public class FactionStatusService {
 	
 	@Autowired
-	private IPersonaRelationDAO dao;
+	private IFactionStatusDAO dao;
 	
-	public void save(PersonaRelation pr) {
-		dao.save(pr);
+	public void save(FactionStatus fs) {
+		dao.save(fs);
 	}
 
-	public List<PersonaRelation> findAll() {
+	public List<FactionStatus> findAll() {
 		return dao.findAll();
 	}
 	
-	public List<PersonaRelation> findByLeftID(long id) {
+	public List<FactionStatus> findByLeftID(long id) {
 		return dao.findByLeftID(id);
 	}
 	
-	public List<PersonaRelation> findByRightID(long id) {
+	public List<FactionStatus> findByRightID(long id) {
 		return dao.findByRightID(id);
 	}
 	
-	public List<PersonaRelation> findByRelationID(long id) {
+	public List<FactionStatus> findByRelationID(long id) {
 		return dao.findByRelationID(id);
 	}
 	
